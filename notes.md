@@ -59,13 +59,17 @@ file, created by the "npm init...".  Within the "scripts" object, I add the foll
 + To make Django serve up this basic set-up I:
    + Add `{% load static %}`, so that I can do `<script src="{% static 'main.js' %}"...` within my 
      Django template.
-   + Add a STATICFILES_DIRS, and point it to the 'dist/' directory that webpack defaults to.
+   + Add a STATICFILES_DIRS to my settings.py, and point it to the 'dist/' directory that webpack defaults to.
 + Now, I can run `./manage.py runserver` and visit the page in the browser.
 
 Right, so, that's success number 1.  With nothing but Webpack and Django and the most simple
 JavaScript file I can come up with, I've got success.  There's a long way to go yet, but it
 works so far.
 
+**Next step, lets bring React into the picture**
+
++ Within our Django app, which is also our main package for our npm files, we're going to run
+`npm install react react-dom`
 
 ## Resources
 
