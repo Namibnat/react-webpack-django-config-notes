@@ -1,4 +1,4 @@
-# My own notes on using React as a front end for my projects
+# My notes: using React as a front-end for Django projects
 
 ## What is this?
 
@@ -10,13 +10,13 @@ but enough that I'm comfortable with it.  I'm new to React,
 but I've dipped my toes into some online tutorials and I've
 read some docs, etc.
 
-I want to create an 'app', as per the Django parlance that
+I want to create an 'app', as per the Django parlance, that
 I hope to package as a single git repo, and so ideally I'd
-like to keep as much of the code within the project.
+like to keep as much of the code within the single Django 'app'.
 
-Since this is for me, I'm not going to explain anything
-that I already know.  As a result, it might be a bit
-starting from nowhere if you happen to stumble across this
+Since this is for me, I'm not going to explain things
+I already know.  As a result, it might be a bit
+'starting from nowhere' if you happen to stumble across this
 repo in your attempts to solve a similar problem.
 
 I'm also not going explain what Webpack, Django or React are.
@@ -24,6 +24,7 @@ See the linked resources for lots of information there.
 
 **If you're reading this before I'm done, this might totally fail**.  If you
 follow my advice, you might blow up something.
+
 
 ## Starting out:
 
@@ -46,12 +47,12 @@ I'm going to initialize a node module too - `npm init -y`.
 **Now I want to get a "Hello world!" JavaScript file to get served by Django
 
 + Webpack's config is done in a file called "webpack.config.js", but out of the box
-it can work without any config.  So, I want to start there, and get Django to
-be able to display something super basic from the default settings of webpack.
-+ "src/index.js" is the "entry point" that webpack expects to find the JavaScript
-file that is going to import all the other modules the project needs to run.
+it can work without any config.  So, I want to start there.  Step one is to get Django to
+be able to display something basic from the default settings of webpack.
++ "src/index.js" is the "entry point" that webpack expects to find the a JavaScript file.  This
+JavaScript file is going to import all the modules the project needs to run.
 + Inside "src/index.js" I put a simple `console.log("Hello World!")`.
-+ The default output for webpack a main.js file in "dist/"
++ The default output for webpack is a "main.js" file in "dist/" directory.
 + To easily run webpack in development, I need to add some config to the "package.json"
 file, created by the "npm init...".  Within the "scripts" object, I add the following property
 `"dev": "webpack --mode development"`
