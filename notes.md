@@ -25,32 +25,45 @@ See the linked resources for lots of information there.
 **If you're reading this before I'm done, this might totally fail**.  If you
 follow my advice, you might blow up something.
 
+## Starting out:
 
-## Starting point
-
-So, to start, here is what I've got:
-
-+ A Django app, hocked up to work.  I will use Django Rest Framework, but that's
-beyond what I'm covering here.
-+ Within that app, noting that this may or may not be the right thing to do,
-I'm going to initialize a node module too - `npm init -y`.
-+ Install the basic things that webpack needs `npm i webpack webpack-cli webpack-dev-server --save-dev`
-+ I'm building this in development, and then want to know how to take it all the
+I'm building this in development, and then want to know how to take it all the
 way to deployment, focusing on the config, so I'm building little more than
 a "Hello world" app.
 
 
 ## Notes
 
-Starting right in the middle.  With Webpack.
+**So, to start, here is what I've got:**
 
-+ Webpack can work without and config file, and has a set of defaults that work
-out of the box.
-+ Webpack config is done in a file called "webpack.config.js"
++ A Django app, hocked up to work.  I will use Django Rest Framework, but that's
+beyond what I'm covering here.
++ Within that app, noting that this may or may not be the right thing to do,
+I'm going to initialize a node module too - `npm init -y`.
++ Install the basic things that webpack needs `npm i webpack webpack-cli webpack-dev-server --save-dev`
+
+
+**Now I want to get a "Hello world!" JavaScript file to get served by Django
+
++ Webpack's config is done in a file called "webpack.config.js", but out of the box
+it can work without any config.  So, I want to start there, and get Django to
+be able to display something super basic from the default settings of webpack.
 + "src/index.js" is the "entry point" that webpack expects to find the JavaScript
 file that is going to import all the other modules the project needs to run.
-+ The default output for webpack is "dist/"
-+ 
++ Inside "src/index.js" I put a simple `console.log("Hello World!")`.
++ The default output for webpack a main.js file in "dist/"
++ To easily run webpack in development, I need to add some config to the "package.json"
+file, created by the "npm init...".  Within the "scripts" object, I add the following property
+`"dev": "webpack --mode development"`
++ To make Django serve up this basic set-up I:
+   + Add `{% load static %}`, so that I can do `<script src="{% static 'main.js' %}"...` within my 
+     Django template.
+   + Add a STATICFILES_DIRS, and point it to the 'dist/' directory that webpack defaults to.
++ Now, I can run `./manage.py runserver` and visit the page in the browser.
+
+Right, so, that's success number 1.  With nothing but Webpack and Django and the most simple
+JavaScript file I can come up with, I've got success.  There's a long way to go yet, but it
+works so far.
 
 
 ## Resources
@@ -62,13 +75,13 @@ file that is going to import all the other modules the project needs to run.
 + [Github: shonin/ django-manifest-loader](https://github.com/shonin/django-manifest-loader)
 + [Django and webpack now work together seamlessly](https://shonin.medium.com/django-and-webpack-now-work-together-seamlessly-a90cffdbab8e)
 + [Django Manifest Loader](https://django-manifest-loader.readthedocs.io/en/latest/index.html)
++ [Django STATICFILES_DIRS docs](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-STATICFILES_DIRS)
 
 
 ### Frameworks
 
 + [Django Web Framework](https://www.djangoproject.com/)
 + [React](https://reactjs.org/)
-+ [Django STATICFILES_DIRS docs](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-STATICFILES_DIRS)
 + [Webpack](https://webpack.js.org/)
 + [Babel](https://babeljs.io/)
 + [Node and npm](https://nodejs.org/en/)
