@@ -79,7 +79,7 @@ works so far.
 
 I'm going to follow this blog post directly, so please consult it for more details and the 'why' behind what we're doing:
 
-https://shonin.medium.com/django-and-webpack-now-work-together-seamlessly-a90cffdbab8e
+   https://shonin.medium.com/django-and-webpack-now-work-together-seamlessly-a90cffdbab8e
 
 
 + I want to start clean, so I delete my Django app totally and start a new one from scratch.
@@ -114,10 +114,10 @@ https://shonin.medium.com/django-and-webpack-now-work-together-seamlessly-a90cff
    ```
 + In our html template that Django serves, we need to add:
    ```html
-				<div id='root'></div>
+   <div id='root'></div>
 
-				{% load manifest %}
-				<script src="{% manifest 'index.js' %}"></script>
+   {% load manifest %}
+   <script src="{% manifest 'index.js' %}"></script>
    ```
 + Note, here 'manifest' replaces Django's normal 'static'.
 + In `package.json` in our app, remove the 'test' line within 'scripts' that was originally produced.
@@ -126,24 +126,24 @@ https://shonin.medium.com/django-and-webpack-now-work-together-seamlessly-a90cff
 + Create the 'src' directory within our app
 + Create a very simple React file in that:
    ```javascript
-				import React from "react";
-				import ReactDOM from "react-dom";
-				class Welcome extends React.Component {
-					render() {
-						return <h1>Hello React!</h1>;
-					}
-				}
-				ReactDOM.render(<Welcome />, document.getElementById("root"));
+	 import React from "react";
+   import ReactDOM from "react-dom";
+   class Welcome extends React.Component {
+     render() {
+     return <h1>Hello React!</h1>;
+     }
+   }
+   ReactDOM.render(<Welcome />, document.getElementById("root"));
    ```
 + Install Babel like this: `npm install --save-dev @babel/core @babel/preset-env \@babel/preset-react babel-loader`.
-+ Create a .babelrc file in your home directory (for me, `/home/vernon/`) and add the following:
++ Create a .babelrc file in your app directory and add the following:
    ```javascript
-				{
-					"presets": [
-						"@babel/preset-env",
-						"@babel/preset-react"
-					]
-				}
+   {
+     "presets": [
+     "@babel/preset-env",
+     "@babel/preset-react"
+     ]
+   }
    ```
 + Run `npm run dev` in your app directory.
 + now running `./manage runserver` and visiting the page in your browser should work.
