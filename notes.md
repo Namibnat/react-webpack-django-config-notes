@@ -94,24 +94,24 @@ https://shonin.medium.com/django-and-webpack-now-work-together-seamlessly-a90cff
    `npm i --save-dev webpack-manifest-plugin clean-webpack-plugin`
 + Before we didn't mess with Webpack config, but now we need to set it up to play nicely with Django Manifest Loader:
    ```
-				// webpack.config.js example
-				const path = require('path');
-				const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-				const {WebpackManifestPlugin} = require('webpack-manifest-plugin');
+// webpack.config.js example
+const path = require('path');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const {WebpackManifestPlugin} = require('webpack-manifest-plugin');
 
-				module.exports = {
-					entry: './src/index.js',
-					plugins: [
-							new CleanWebpackPlugin(),  
-							new WebpackManifestPlugin(), 
-					],
-					output: {
-						publicPath: '',
-						filename: '[name].[contenthash].js', 
-						path: path.resolve(__dirname, 'dist'),
-					},
-				};
-```
+module.exports = {
+	entry: './src/index.js',
+	plugins: [
+			new CleanWebpackPlugin(),  
+			new WebpackManifestPlugin(), 
+	],
+	output: {
+		publicPath: '',
+		filename: '[name].[contenthash].js', 
+		path: path.resolve(__dirname, 'dist'),
+	},
+};
+   ```
 + In our html template that Django serves, we need to add:
    ```html
 				<div id='root'></div>
@@ -147,11 +147,6 @@ https://shonin.medium.com/django-and-webpack-now-work-together-seamlessly-a90cff
    ```
 + Run `npm run dev` in your app directory.
 + now running `./manage runserver` and visiting the page in your browser should work.
-
-
-
-
-
 
 
 ## Resources
