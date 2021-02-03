@@ -2,35 +2,17 @@
 
 ## What is this?
 
-Here is the problem where I started.  I know Django fairly
-well, and have used it for a number of projects over the
-years.  I also know JavaScript rather well, as well as
-HTML and CSS.  I've used Node a bit, though only in tutorials,
-but enough that I'm comfortable with it.  I'm new to React,
-but I've dipped my toes into some online tutorials and I've
-read some docs, etc.
+Here is the problem where I started. I know Django well, and have used it for many projects over the years. I also know JavaScript well, as well as HTML and CSS. I've used Node a bit, though only in tutorials, but enough that I'm comfortable with it. I'm new to React, but I've dipped my toes into some online tutorials and I've read some docs.  I've done tutorials on Django Rest Framework.
 
-I want to create an 'app', as per the Django parlance, that
-I hope to package as a single git repo, and so ideally I'd
-like to keep as much of the code within the single Django 'app'.
+I want to create an 'app', as per the Django parlance, that to package as a single git repo.  I'd like to keep as much of the code within the single Django 'app'.  This includes the set-up for the Node application.
 
-Since this is for me, I'm not going to explain things
-I already know.  As a result, it might be a bit
-'starting from nowhere' if you happen to stumble across this
-repo in your attempts to solve a similar problem.
+Since this is for me, I'm not going to explain things I already know. As a result, it might be a bit 'starting from nowhere' if you happen to stumble across this repo.
 
-Most especially, I'm not going to explain Django related things.  I
-I put this stuff up, though, because maybe some of what I write here
-might help you somehow get one step forward in your own efforts.
+Most especially, I'm not going to explain Django related things.  I put this on Github because some of what I write here might help you get one step forward in your own efforts.
 
-I might even put it up as a blog post, where I'd explain more details.
-Probably not soon though.
+I might even put it up as a blog post, where I'd explain more details. Not soon though.
 
-I'm also not going explain what Webpack, Django or React are.
-See the linked resources for lots of information there.
-
-**If you're reading this before I'm done, this might totally fail**.  If you
-follow my advice, you might blow up something.
+I'm also not going explain what Webpack, Django or React are. See the linked resources for lots of information there.
 
 
 ## Starting out:
@@ -126,7 +108,7 @@ I'm going to follow this blog post directly, so please consult it for more detai
 + Create the 'src' directory within our app
 + Create a very simple React file in that:
    ```javascript
-	 import React from "react";
+   import React from "react";
    import ReactDOM from "react-dom";
    class Welcome extends React.Component {
      render() {
