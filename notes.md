@@ -77,7 +77,8 @@ I'm going to follow this blog post directly, so please consult it for more detai
 + Now install Webpack in that same directory again `npm i --save-dev webpack webpack-cli`
 + Django Manifest Loader also requires some extra things, so lets install those:
    `npm i --save-dev webpack-manifest-plugin clean-webpack-plugin`
-+ Before we didn't mess with Webpack config, but now we need to set it up to play nicely with Django Manifest Loader:
++ Before we didn't mess with Webpack config, but now we need to set it up to play nicely with Django Manifest Loader.
+  The config file is "webpack.config.js", and so the following gets saved in this file.
    ```javascript
    const path = require('path');
    const {CleanWebpackPlugin} = require('clean-webpack-plugin');
