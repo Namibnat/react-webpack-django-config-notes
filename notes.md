@@ -2,7 +2,7 @@
 
 ## What is this?
 
-Here is the problem where I started. I know Django well, and have used it for many projects over the years. I also know JavaScript well, as well as HTML and CSS. I've used Node a bit, though only in tutorials, but enough that I'm comfortable with it. I'm new to React, but I've dipped my toes into some online tutorials and I've read some docs.  I've done tutorials on Django Rest Framework.
+Here is the problem I started from. I know Django well, and have used it for many projects over the years. I also know JavaScript well, as well as HTML and CSS. I've used Node a bit, though only in tutorials, but enough that I'm comfortable with it. I'm new to React, but I've dipped my toes into some online tutorials and I've read some docs.  I've done tutorials on Django Rest Framework.
 
 I want to create an 'app', as per the Django parlance, to package as a single git repo.  I'd like to keep all the code possible within the single Django 'app'.  This includes the set-up for the Node application.
 
@@ -25,7 +25,7 @@ Three.  Get that set-up to work on a web facing server.
 
 ## Notes
 
-**So, to start, here is what I've got:**
+### **So, to start, here is what I've got:**
 
 + A Django app, set up to work (urlconf pointing to it, settings.py too).  I will use
 Django Rest Framework in the project for which I'm learning this, but that's beyond what
@@ -57,6 +57,8 @@ file, created by the "npm init...".  Within the "scripts" object, I add the foll
 Right, so, that's success number 1.  With nothing but Webpack and Django and the most simple
 JavaScript file I can come up with, I've got success.  There's a long way to go yet, but it
 works so far.
+
+### Get a "Hello World" React App to work
 
 **Right, so we can get something simple working, but lets use "Webpack Manifest Loader" to help us get React into the picture.**
 
@@ -130,6 +132,12 @@ I'm going to follow this blog post directly, so please consult it for more detai
    ```
 + Run `npm run dev` in your app directory.
 + now running `./manage runserver` and visiting the page in your browser should work.
+
+
+
+### Get this to work in production
+
+**Note, I'll add this later, when my own project is ready to post to my server**
 
 
 ## Resources
