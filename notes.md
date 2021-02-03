@@ -17,10 +17,11 @@ I'm also not going explain what Webpack, Django or React are. See the linked res
 
 ## Starting out:
 
-I'm building this in development, and then want to know how to take it all the
-way to deployment, focusing on the config, so I'm building little more than
-a "Hello world" app.
+I'm aiming to do this in three passes.  One.  Write the most simple "Hello World!" type app I can, and get Django and Webpack to work.
 
+Two.  Set up a "Hello World!" react app, using Django Manifest Loader in development and get that to work.
+
+Three.  Get that set-up to work on a web facing server.
 
 ## Notes
 
