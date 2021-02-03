@@ -60,7 +60,7 @@ works so far.
 
 ### Get a "Hello World" React App to work
 
-**Right, so we can get something simple working, but lets use "Webpack Manifest Loader" to help us get React into the picture.**
+**Right, so we can get something simple working. Now, lets step it up to use "Webpack Manifest Loader" and bring React into the picture.**
 
 I'm going to follow this blog post directly, so please consult it for more details and the 'why' behind what we're doing:
 
@@ -72,28 +72,34 @@ I'm going to follow this blog post directly, so please consult it for more detai
 + Install Django Manifest Loader with pip in your pip environment: `pip install django-manifest-loader`
 + Manifest loader needs to be added to our INSTALLED_APPS in settings.py as `manifest_loader`.
 + We already have `dist/` in our "STATICFILES_DIRS" in our settings.py.
-+ Within the new app, create that directory.
++ Within the new app, create that directory (`mkdir new_app_name/dist`)
 + Within the new app, run `npm init -y` again.
 + Now install Webpack in that same directory again `npm i --save-dev webpack webpack-cli`
 + Django Manifest Loader also requires some extra things, so lets install those:
    `npm i --save-dev webpack-manifest-plugin clean-webpack-plugin`
 + Before we didn't mess with Webpack config, but now we need to set it up to play nicely with Django Manifest Loader:
    ```javascript
-   // webpack.config.js example
    const path = require('path');
    const {CleanWebpackPlugin} = require('clean-webpack-plugin');
    const {WebpackManifestPlugin} = require('webpack-manifest-plugin');
 
    module.exports = {
      entry: './src/index.js',
-	   plugins: [
-			 new CleanWebpackPlugin(),  
-			 new WebpackManifestPlugin(), 
-	   ],
+     plugins: [
+       new CleanWebpackPlugin(),  
+       new WebpackManifestPlugin(), 
+     ],
      output: {
-		   publicPath: '',
-		   filename: '[name].[contenthash].js', 
-		   path: path.resolve(__dirname, 'dist'),
+       publicPath: '',
+       filename: '[name].[contenthash].js', 
+       path: path.resolve(__dirname, 'dist'),
+     },
+     module:{
+       rules:[{
+         loader: 'babel-loader',
+         test: /\.js$|jsx/,
+         exclude: /node_modules/
+       }]
      },
    };
    ```
@@ -102,14 +108,14 @@ I'm going to follow this blog post directly, so please consult it for more detai
    <div id='root'></div>
 
    {% load manifest %}
-   <script src="{% manifest 'index.js' %}"></script>
+   <script src="{% manifest 'main.js' %}"></script>
    ```
-+ Note, here 'manifest' replaces Django's normal 'static'.
-+ In `package.json` in our app, remove the 'test' line within 'scripts' that was originally produced.
+   **Note**, here 'manifest' replaces Django's normal 'static'.
++ In `package.json` in our app, we could remove the 'test' line within 'scripts' that was originally produced.
 + Add `"dev": "webpack --mode development"` to it instead.
 + Install React and React-DOM with `npm install react react-dom`
 + Create the 'src' directory within our app
-+ Create a very simple React file in that:
++ Create a very simple React file in "src/index.js":
    ```javascript
    import React from "react";
    import ReactDOM from "react-dom";
@@ -150,6 +156,7 @@ I'm going to follow this blog post directly, so please consult it for more detai
 + [Django and webpack now work together seamlessly](https://shonin.medium.com/django-and-webpack-now-work-together-seamlessly-a90cffdbab8e)
 + [Django Manifest Loader](https://django-manifest-loader.readthedocs.io/en/latest/index.html)
 + [Django STATICFILES_DIRS docs](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-STATICFILES_DIRS)
++ [You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file."](https://stackoverflow.com/questions/57924348/you-may-need-an-appropriate-loader-to-handle-this-file-type-currently-no-loader)
 
 
 ### Frameworks
