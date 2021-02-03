@@ -4,7 +4,7 @@
 
 Here is the problem where I started. I know Django well, and have used it for many projects over the years. I also know JavaScript well, as well as HTML and CSS. I've used Node a bit, though only in tutorials, but enough that I'm comfortable with it. I'm new to React, but I've dipped my toes into some online tutorials and I've read some docs.  I've done tutorials on Django Rest Framework.
 
-I want to create an 'app', as per the Django parlance, to package as a single git repo.  I'd like to keep as much of the code within the single Django 'app'.  This includes the set-up for the Node application.
+I want to create an 'app', as per the Django parlance, to package as a single git repo.  I'd like to keep all the code possible within the single Django 'app'.  This includes the set-up for the Node application.
 
 Since this is for me, I'm not going to explain things I already know. As a result, it might be a bit 'starting from nowhere' if you happen to stumble across this repo.
 
